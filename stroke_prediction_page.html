@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div name="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" >
+
+  <div class="container services wow fadeIn animated">
+    <div class="row">
+        <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12">
+          <div class="appointment-form">
+            {% if response %}
+            <h3>Your Prediction Result = {{response}} </h3>
+            {% else %}
+
+            <h3><span>+</span> Please fill your form</h3>
+            {% endif %}
+            <div class="form">
+                <form action="/prediction_page1" method="post">
+                  {% csrf_token %}
+                  <fieldset>
+
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="form-group">
+
+                          <b>Age:</b><input type="text" id="Age" name="Age" required>
+                          </div>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="form-group">
+
+
+<label for="Blood Pressure">Blood Pressure:</label>
+              <select id="Blood Pressure" name="Blood Pressure">
+              <option value="140/90 & Higher">140/90 & Higher</option>
+                  <option value="120-139 / 80-89">120-139 / 80-89</option>
+                 <option value="Less than 120/80">Less than 120/80</option>
+              </select>
+
+
+                          </div>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="form-group">
+                            <label for="Cholesterol">Cholesterol:</label>
+              <select id="Cholesterol" name="Cholesterol">
+              <option value="Greater than 240">Greater than 240</option>
+                  <option value="200 - 239">200 - 239</option>
+                 <option value="Less than 200">Less than 200</option>
+              </select>
+
+                          </div>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="form-group">
+                            <label for="Smoking">Smoking:</label>
+              <select id="Smoking" name="Smoking">
+              <option value="Yes">Yes</option>
+                  <option value="Trying to Quit">Trying to Quit</option>
+                 <option value="No">No</option>
+              </select>
+
+                          </div>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="form-group">
+
+               <label for="Atrial Fibrillation">Atrial Fibrillation:</label>
+              <select id="Atrial Fibrillation" name="Atrial Fibrillation">
+              <option value="Normal Heartbeat">Normal Heartbeat</option>
+                  <option value="heartbeat occasionally skips">heartbeat occasionally skips</option>
+                 <option value="Irregular heartbeat">Irregular heartbeat</option>
+              </select>
+
+
+                          </div>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="form-group">
+                            <label for="Family history of stroke">Family history of stroke:</label>
+              <select id="Family history of stroke" name="Family history of stroke">
+              <option value="Yes">Yes</option>
+                  <option value="Not sure">Not sure</option>
+                 <option value="No">No</option>
+              </select>
+
+                          </div>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="form-group">
+                              <label for="BMI">BMI:</label>
+              <select id="BMI" name="BMI">
+              <option value="Overweight(above 28)">Overweight(above 28)</option>
+                  <option value="Slightly overweight(25-28)">Slightly overweight(25-28)</option>
+                 <option value="Healthy(18.5-24.9)">Healthy(18.5-24.9)</option>
+              </select>
+
+                          </div>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="form-group">
+                          <label for="Exercise">Exercise:</label>
+              <select id="Exercise" name="Exercise">
+              <option value="Couch potato">Couch potato</option>
+                  <option value="Exercise occasionally">Exercise occasionally</option>
+                 <option value="Exercise regularly">Exercise regularly</option>
+              </select>
+
+                          </div>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="form-group">
+                            <label for="Diabetes_Fasting">Diabetes(Fasting):</label>
+              <select id="Diabetes_Fasting" name="Diabetes_Fasting">
+              <option value="Above 126 mg/dL">Above 126 mg/dL</option>
+                  <option value="100-125 mg/dL">100-125 mg/dL</option>
+                 <option value="99 mg/dL or below">99 mg/dL or below</option>
+              </select>
+
+
+                          </div>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="form-group">
+                          <label for="Diabetes_After_Eating">Diabetes(2-3 After Eating):</label>
+              <select id="Diabetes_After_Eating" name="Diabetes_After_Eating">
+              <option value="Above 200 mg/dL">Above 200 mg/dL</option>
+                  <option value="140-199 mg/dL">140-199 mg/dL</option>
+                 <option value="140 mg/dL or below">140 mg/dL or below</option>
+              </select>
+
+
+                          </div>
+                      </div>
+                   <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="form-group">
+                          <label for="gender">Gender:</label>
+              <select id="gender" name="gender">
+              <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+              </select>
+                          </div>
+                      </div>
+
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="form-group">
+                              <div class="center"><button type="submit">Submit</button></div>
+                            </div>
+                        </div>
+                      </div>
+                  </fieldset>
+                </form>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
